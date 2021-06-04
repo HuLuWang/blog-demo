@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package blog.v1;
+
+option go_package = "blog-demo/blog/v1;v1";
+option java_multiple_files = true;
+option java_package = "blog.v1";
+option objc_class_prefix = "APIBlogErrors";
+
+enum ErrorReason {
+    TITLE_MISSING = 0;
+    CONTENT_MISSING = 1;
+}
