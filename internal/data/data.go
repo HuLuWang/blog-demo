@@ -2,10 +2,10 @@ package data
 
 import (
 	"blog-demo/internal/conf"
+	"blog-demo/internal/data/ent"
 	"context"
-	"entgo.io/ent/examples/start/ent"
 	"github.com/go-kratos/kratos/v2/log"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	"github.com/google/wire"
 )
 
