@@ -5,8 +5,12 @@ import (
 	"blog-demo/internal/data/ent"
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/go-redis/redis/extra/redisotel"
 	"github.com/go-redis/redis/v8"
 	"github.com/google/wire"
+	
+	// init mysql
+	_ "github.com/go-sql-driver/mysql"
 )
 
 // ProviderSet is data providers.
@@ -43,6 +47,7 @@ func NewData(c *conf.Data, logger log.Logger) (*Data, func(), error) {
 		WriteTimeout: c.Redis.WriteTimeout.AsDuration(),
 		ReadTimeout:  c.Redis.ReadTimeout.AsDuration(),
 	})
+	rdb.AddHook(redisotel.TracingHook{})
 	d := &Data{
 		db:  client,
 		rdb: rdb,

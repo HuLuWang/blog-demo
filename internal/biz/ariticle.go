@@ -2,7 +2,6 @@ package biz
 
 import (
 	"context"
-	"log"
 	"time"
 )
 
@@ -32,7 +31,7 @@ type ArticleUseCase struct {
 	repo ArticleRepo
 }
 
-func NewArticleUseCase(repo ArticleRepo, logger log.Logger) *ArticleUseCase {
+func NewArticleUseCase(repo ArticleRepo) *ArticleUseCase {
 	return &ArticleUseCase{
 		repo: repo,
 	}
